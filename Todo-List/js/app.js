@@ -10,18 +10,46 @@ const taskList = document.getElementById('list');
 submitForm.addEventListener('submit', function(e){
   console.log('clicked');
   e.preventDefault();  
+  
   //creating an element
-    const li = document.createElement('li');
-    const addBtn = document.createElement('button');
-    const addBtnText = document.createTextNode('Add');
-    addBtn.appendChild(addBtnText);
-   li.appendChild(addBtn);
-  taskList.appendChild(li);
+  const li = document.createElement('li');
+  
+  // creating the add button
+  const addBtn = document.createElement('button');
+  const addBtnText = document.createTextNode('Add');
+  //setting add button attributes
+  addBtn.setAttribute('class', 'btn');
+  
+  // creating the edit button
+  const editBtn = document.createElement('button');
+  const EditBtnText = document.createTextNode('Edit');
+  // setting edit button attributes
+  editBtn.setAttribute('class', 'btn');
+  
+  // creating the delete button
+  const deleteBtn = document.createElement('button');
+  const DeleteBtnText = document.createTextNode('Delete');
+  // setting delete button attributes
+  deleteBtn.setAttribute('class', 'btn');
+  
+  let taskName = inputTask.value;
 
-    //const task = inputTask.value;
-    //const li = document.createElement('li');
-    //li.appendChild(document.createTextNode(task));
-    //ultaskList.appendChild(li);
-    //inputTask.value = '';
-    //console.log(task);
+  li.textContent = taskName;
+  //added text to the addbutton
+  addBtn.appendChild(addBtnText);
+  //added button to the li
+  li.appendChild(addBtn);
+
+  //added text to the edit button
+  editBtn.appendChild(EditBtnText);
+  //added button to the li
+  li.appendChild(editBtn);
+
+  //added text to the delete button
+  deleteBtn.appendChild(DeleteBtnText);
+  //added button to the li
+  li.appendChild(deleteBtn);
+
+  //appended the li to the ul
+  taskList.appendChild(li);
 });
