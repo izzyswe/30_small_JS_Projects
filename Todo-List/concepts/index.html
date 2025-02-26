@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append List Item with Button</title>
+</head>
+<body>
+
+    <!-- Button to trigger the append action -->
+    <button id="appendButton">Append</button>
+
+    <!-- Unordered list to append the list items -->
+    <ul id="listContainer"></ul>
+
+    <script src="script.js"></script>
+<script>
+  // Get the append button and the list container
+const appendButton = document.getElementById('appendButton');
+const listContainer = document.getElementById('listContainer');
+
+// Add an event listener to the button
+appendButton.addEventListener('click', function() {
+    // Create a new list item
+    const newListItem = document.createElement('li');
+    
+    // Create a new button
+    const newButton = document.createElement('button');
+    
+    // Set the value (text) inside the button
+    newButton.textContent = 'Click Me';
+
+    // Optionally, you can add functionality to the button, such as a click event
+    newButton.addEventListener('click', function() {
+        alert('Button clicked inside li!');
+    });
+
+    // Append the button inside the list item
+    newListItem.appendChild(newButton);
+
+    // Append the new list item to the container (ul)
+    listContainer.appendChild(newListItem);
+});
+</script>
+  </body>
+</html>
+
