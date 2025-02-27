@@ -72,8 +72,16 @@ taskList.addEventListener('click', function(e){
 
 // Event Listener for the edit button
 taskList.addEventListener('click', function(e){
+  //if the event target is the edit button
   if(e.target.id === 'edit'){
+    //prompt the user to edit the task
     let editTask = prompt('Edit Task');
-    e.target.parentElement.firstChild.textContent = editTask;
+    //if the task is not empty
+    if (editTask.trim() !== '') {
+      //set the text content of the first child of the parent element of the event target to the edited task
+      e.target.parentElement.firstChild.textContent = editTask;
+    } else {
+      alert('Task cannot be empty');
+    }  
   }
 });
