@@ -85,3 +85,15 @@ taskList.addEventListener('click', function(e){
     }  
   }
 });
+
+// Event Listener for the add Date button beside the text
+taskList.addEventListener('click', function(e){
+  if(e.target.id === 'add'){
+    let date = prompt('Add Date');
+    if (date.trim() !== '') {
+      e.target.parentElement.firstChild.textContent = e.target.parentElement.firstChild.textContent + ' - ' + date;
+    } else {
+      alert('Date cannot be empty');
+    }
+  }
+});
