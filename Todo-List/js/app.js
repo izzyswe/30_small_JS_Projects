@@ -13,28 +13,37 @@ submitForm.addEventListener('submit', function(e){
   
   //creating an element
   const li = document.createElement('li');
-  
+  //setting the class attribute
+  li.setAttribute('class', 'item-list');
+ 
+  const para = document.createElement('p');
+
   // creating the add button
   const addBtn = document.createElement('button');
   const addBtnText = document.createTextNode('Add');
   //setting add button attributes
+  addBtn.setAttribute('id', 'add');
   addBtn.setAttribute('class', 'btn');
   
   // creating the edit button
   const editBtn = document.createElement('button');
   const EditBtnText = document.createTextNode('Edit');
   // setting edit button attributes
+  editBtn.setAttribute('id', 'edit');
   editBtn.setAttribute('class', 'btn');
   
   // creating the delete button
   const deleteBtn = document.createElement('button');
   const DeleteBtnText = document.createTextNode('Delete');
   // setting delete button attributes
+  deleteBtn.setAttribute('id', 'delete');
   deleteBtn.setAttribute('class', 'btn');
   
   let taskName = inputTask.value;
+  para.textContent = taskName;
+  li.appendChild(para);
 
-  li.textContent = taskName;
+  //li.textContent = taskName;
   //added text to the addbutton
   addBtn.appendChild(addBtnText);
   //added button to the li
@@ -52,4 +61,19 @@ submitForm.addEventListener('submit', function(e){
 
   //appended the li to the ul
   taskList.appendChild(li);
+});
+
+// Event Listener for the delete button
+taskList.addEventListener('click', function(e){
+  if(e.target.id === 'delete'){
+    e.target.parentElement.remove();
+  }
+});
+
+// Event Listener for the edit button
+taskList.addEventListener('click', function(e){
+  if(e.target.id === 'edit'){
+    let editTask = prompt('Edit Task');
+    e.target.parentElement.firstChild.textContent = editTask;
+  }
 });
