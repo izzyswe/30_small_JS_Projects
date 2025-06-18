@@ -1,4 +1,4 @@
-# 30 Day JavaScript Project
+# 30 JavaScript Project
 Challenging myself to make a new project every week <br>
 From mundane to interesting projects
 
